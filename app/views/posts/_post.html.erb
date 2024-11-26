@@ -2,56 +2,29 @@
   <h2><%= post.title %></h2>
   <p><%= post.description %></p>
   <p><strong>Keyword:</strong> <%= post.keyword %></p>
-  <p><strong>Posted by:</strong> <%= post.user_id %></p>
-  <p><%= link_to "View Post", post %></p>
-
-  <% like = current_user.likes.find_by(post: post) %>
-  <% if like.nil? %>
-    <%= button_to "Like", likes_path, 
-                  params: { like: { post_id: post.id } }, 
-                  method: :post, 
-                  remote: true,
-                  id: "like-button-#{post.id}",
-                  class: "btn btn-primary" %>
-  <% else %>
-    <%= button_to "Unlike", like_path(like), 
-                  method: :delete, 
-                  remote: true,
-                  id: "unlike-button-#{post.id}",
-                  class: "btn btn-danger" %>
-  <% end %>
-  <p id="likes-count-<%= post.id %>"><%= post.likes.count %> Likes</p>
-
-  <% if post.images.any? %>
-    <div class="image-gallery">
-      <% post.images.each do |image| %>
-        <%= image_tag(image, style: "object-fit: contain; width: 200px; height: 200px") %>
-      <% end %>
-    </div>
-  <% end %>
-</div<div id="<%= dom_id post %>" class="post-container">
-  <h2><%= post.title %></h2>
-  <p><%= post.description %></p>
-  <p><strong>Keyword:</strong> <%= post.keyword %></p>
   <p><strong>Posted by:</strong> <%= post.user.name %></p>
   <p><%= link_to "View Post", post %></p>
 
-  <% like = current_user.likes.find_by(post: post) %>
-  <% if like.nil? %>
-    <%= button_to "Like", likes_path, 
-                  params: { like: { post_id: post.id } }, 
-                  method: :post, 
-                  remote: true,
-                  id: "like-button-#{post.id}",
-                  class: "btn btn-primary" %>
+  <% if user_signed_in? %>  <!-- ตรวจสอบว่าผู้ใช้ล็อกอินหรือไม่ -->
+    <% like = current_user.likes.find_by(post: post) %>
+    <% if like.nil? %>
+      <%= button_to "Like", likes_path, 
+                    params: { like: { post_id: post.id } }, 
+                    method: :post, 
+                    remote: true,
+                    id: "like-button-#{post.id}",
+                    class: "btn btn-primary" %>
+    <% else %>
+      <%= button_to "Unlike", like_path(like), 
+                    method: :delete, 
+                    remote: true,
+                    id: "unlike-button-#{post.id}",
+                    class: "btn btn-danger" %>
+    <% end %>
+    <p id="likes-count-<%= post.id %>"><%= post.likes.count %> Likes</p>
   <% else %>
-    <%= button_to "Unlike", like_path(like), 
-                  method: :delete, 
-                  remote: true,
-                  id: "unlike-button-#{post.id}",
-                  class: "btn btn-danger" %>
+    <p>Please sign in to like this post.</p>
   <% end %>
-  <p id="likes-count-<%= post.id %>"><%= post.likes.count %> Likes</p>
 
   <% if post.images.any? %>
     <div class="image-gallery">

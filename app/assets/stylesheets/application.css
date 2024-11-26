@@ -1,60 +1,32 @@
 /*
- * This is a manifest file that'll be compiled into application.css.
- *
- * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
- * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
- * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
- * depending on specificity.
- *
- * Consider organizing styles into separate files for maintainability.
+ * Application-wide styles
+ * Organized for readability and maintainability
  */
-/*
- *= require custom
- */
-/* Styling for the form container */
-.container {
-  max-width: 600px; /* Set the maximum width of the form */
-  margin: 0 auto; /* Center the form horizontally */
+
+/* General Styles */
+body {
+  background-color: #f8f9fa; /* Light background */
 }
 
-/* Center the text */
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 .text-center {
   text-align: center;
 }
 
-/* Button styles */
 .btn {
   display: block;
-  margin: 20px auto; /* Center the button horizontally */
+  margin: 20px auto;
 }
 
-/* Footer styles */
-footer {
-  background-color: #343a40; /* Dark background for footer */
-  color: #fff; /* White text color */
-  padding: 20px 0; /* Vertical padding */
+/* Navbar */
+.navbar {
+  margin-bottom: 20px;
 }
 
-footer h5 {
-  margin-bottom: 20px; /* Space below the heading */
-}
-
-footer ul {
-  padding: 0;
-  list-style: none; /* Remove list style for footer links */
-}
-
-footer ul li a {
-  color: #adb5bd; /* Light grey color for links */
-  text-decoration: none; /* Remove underline from links */
-}
-
-footer ul li a:hover {
-  color: #fff; /* Change to white on hover */
-  text-decoration: underline; /* Underline on hover */
-}
-
-/* เพิ่มในไฟล์ application.css หรือ custom.css */
 .navbar-nav {
   margin-left: auto;
 }
@@ -63,78 +35,7 @@ footer ul li a:hover {
   max-width: 300px;
 }
 
-/* Navbar margin */
-.navbar {
-  margin-bottom: 20px; /* Add space below navbar */
-}
-
-/* Custom Buttons */
-.btn-primary {
-  background-color: #f50057; /* Instagram-like pink */
-  border: none; /* Remove border */
-}
-
-.btn-primary:hover {
-  background-color: #c51162; /* Darken on hover */
-  transform: scale(1.05); /* Slightly increase size on hover */
-  transition: all 0.3s ease; /* Smooth transition */
-}
-
-/* Custom Cards */
-.card {
-  border-radius: 10px; /* Rounded corners for cards */
-  overflow: hidden; /* Ensure no content overflows */
-}
-
-.card-img-top {
-  height: 200px; /* Set fixed height for card image */
-  object-fit: cover; /* Ensure image covers the area */
-}
-
-/* Styles for Comments Section */
-body {
-  background-color: #f8f9fa; /* Light background for the body */
-}
-
-.card {
-  border-radius: 8px; /* Rounded corners for comment cards */
-  overflow: hidden;
-}
-
-.card-title {
-  font-size: 1.75rem; /* Larger font size for comment card titles */
-  font-weight: bold;
-}
-
-.table th {
-  text-align: left;
-  width: 30%;
-  color: #6c757d; /* Light gray color for table headers */
-}
-
-.table td {
-  font-size: 1rem; /* Standard font size for table data */
-}
-
-.btn-outline-primary {
-  font-weight: bold; /* Bold text for outlined primary buttons */
-}
-
-.btn-danger {
-  background-color: #dc3545; /* Red background for danger buttons */
-  border-color: #dc3545;
-}
-
-.btn-danger:hover {
-  background-color: #c82333; /* Darken red on hover */
-  border-color: #bd2130;
-}
-
-.search-bar {
-  margin: 20px auto;
-  text-align: center; /* จัดให้อยู่ตรงกลาง */
-}
-
+/* Logo and Links */
 .logo {
   font-size: 20px;
   font-weight: bold;
@@ -148,4 +49,179 @@ body {
   color: #000;
 }
 
+/* Buttons */
+.btn-primary {
+  background-color: #f50057;
+  border: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
 
+.btn-primary:hover {
+  background-color: #c51162;
+  transform: scale(1.05);
+}
+
+.btn-outline-primary {
+  font-weight: bold;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+
+/* Footer */
+footer {
+  background-color: #343a40;
+  color: #fff;
+  padding: 20px 0;
+}
+
+footer h5 {
+  margin-bottom: 20px;
+}
+
+footer ul {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+footer ul li {
+  margin: 0 10px;
+}
+
+footer ul li a {
+  color: #adb5bd;
+  text-decoration: none;
+}
+
+footer ul li a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* Card */
+.card {
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-title {
+  font-size: 1.75rem;
+  font-weight: bold;
+}
+
+/* Post Card */
+.post-card {
+  position: relative;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.post-card .post-header {
+  position: relative;
+}
+
+.post-card .post-body {
+  margin-top: 20px;
+}
+
+/* Dropdown */
+.dropdown {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.dropdown-button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 30px;
+  right: 0;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dropdown-menu .dropdown-item {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: black;
+}
+
+.dropdown-menu .dropdown-item:hover {
+  background: #f0f0f0;
+}
+
+/* Tables */
+.table th {
+  text-align: left;
+  width: 30%;
+  color: #6c757d;
+}
+
+.table td {
+  font-size: 1rem;
+}
+
+/* Search Bar */
+.search-bar {
+  margin: 20px auto;
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar .form-control {
+    max-width: 100%;
+    margin-bottom: 10px;
+  }
+  .post-card {
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+  .dropdown {
+    top: 5px;
+    right: 5px;
+  }
+}

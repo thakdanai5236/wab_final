@@ -2,13 +2,14 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
   before_action :authenticate_user!, except: %i[index show search]
   before_action :authorize_user!, only: %i[edit update destroy]
-
+  before_action :authenticate_user!, only: [:new, :create]
+  
   # GET /posts or /posts.json
   def index
     if params[:search].present?
       @posts = Post.where("title LIKE ?", "%#{params[:search]}%") # ค้นหาจาก title
     else
-      @posts = Post.all # แสดงโพสต์ทั้งหมด
+      @posts = Post.distinct.uniq { |post| post.title } # แสดงโพสต์ทั้งหมด
     end
   end
 
@@ -19,17 +20,12 @@ class PostsController < ApplicationController
 
   # GET /posts/myposts
   def myposts
-    # ดึงโพสต์ที่ผู้ใช้ล็อกอินเป็นคนสร้าง (ตาม user_id)
     @posts = current_user.posts # แสดงโพสต์เฉพาะของผู้ใช้ที่ล็อกอิน
   end
 
   # GET /posts/new
   def new
     @post = Post.new # สร้างโพสต์ใหม่
-  end
-
-  # GET /posts/1/edit
-  def edit
   end
 
   # POST /posts or /posts.json
@@ -64,10 +60,10 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     respond_to do |format|
-      format.html { redirect_to posts_path, notice: "Post was successfully destroyed.", status: :see_other }
-      format.json { head :no_content }
+      format.turbo_stream { render turbo_stream: turbo_stream.remove(@post) }
+      format.html { redirect_to posts_url, notice: "Post was successfully destroyed." }
     end
-  end
+  end  
 
   # GET /posts/search
   def search

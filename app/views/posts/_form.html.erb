@@ -57,5 +57,13 @@
     <div>
       <%= form.submit "Create Post", class: "btn btn-primary col-12" %>
     </div>
+
+    <!-- If the user is logged in, include hidden user_id field -->
+    <% if current_user %>
+      <%= form.hidden_field :user_id, value: current_user.id %>
+    <% else %>
+      <p>You must be logged in to create a post.</p>
+    <% end %>
+
   <% end %>
 </div>

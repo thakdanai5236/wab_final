@@ -2,5 +2,6 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 // app/javascript/packs/application.js
-import Rails from "@rails/ujs"
-Rails.start()
+import Rails from '@rails/ujs';
+Rails.start();
+
