@@ -1,0 +1,30 @@
+<h1>Search Results</h1>
+
+<% if flash[:alert] %>
+  <div class="alert alert-warning">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
+
+<% if @posts.any? %>
+  <div class="row">
+    <% @posts.each do |post| %>
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-sm">
+          <img src="<%= post.image_url || 'default_image.jpg' %>" class="card-img-top" alt="<%= post.title %>" />
+          <div class="card-body">
+            <h5 class="card-title"><%= truncate(post.title, length: 30) %></h5>
+            <p class="card-text"><%= truncate(post.content, length: 50) %></p>
+            <a href="<%= post_path(post) %>" class="btn btn-outline-primary">View Post</a>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <p class="text-muted text-center">No posts found matching your search</p>
+<% end %>
+
+<div class="mt-4 text-center">
+  <%= link_to "Back to Home", posts_path, class: "btn btn-secondary" %>
+</div>

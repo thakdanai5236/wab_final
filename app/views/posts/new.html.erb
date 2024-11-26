@@ -1,0 +1,41 @@
+<div class="container mt-5">
+  <div class="text-center">
+    <h1>New Post</h1>
+    <%= form_with model: @post, local: true do |form| %>
+      <% if @post.errors.any? %>
+        <div class="alert alert-danger">
+          <h4>Errors:</h4>
+          <ul>
+            <% @post.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="form-group">
+        <%= form.label :title %>
+        <%= form.text_field :title, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :description %>
+        <%= form.text_area :description, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :keyword %>
+        <%= form.text_field :keyword, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :image %>
+        <%= form.file_field :image, class: "form-control" %>
+      </div>
+
+      <div class="form-group mt-4">
+        <%= form.submit "Create Post", class: "btn btn-success btn-lg" %>
+      </div>
+    <% end %>
+  </div>
+</div>

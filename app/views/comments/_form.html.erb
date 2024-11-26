@@ -1,0 +1,37 @@
+<%= form_with(model: comment, local: true) do |form| %>
+  <% if comment.errors.any? %>
+    <div style="color: red; margin-bottom: 20px;">
+      <h4><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h4>
+      <ul>
+        <% comment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- Comment text field -->
+  <div class="mb-3">
+    <%= form.label :text, "Comment", style: "display: block;" %>
+    <%= form.text_area :text, class: "form-control #{'is-invalid' if comment.errors[:text].any?}" %>
+    <% if comment.errors[:text].any? %>
+      <div style="color: red;">
+        <%= comment.errors.full_messages_for(:text).join(", ") %>
+      </div>
+    <% end %>
+  </div>
+
+  <!-- Hidden fields for user_id and post_id -->
+  <% if @post.present? %>
+    <%= form.hidden_field :post_id, value: @post.id %>
+  <% else %>
+    <p style="color: red;">Error: Post not found. Please reload the page.</p>
+  <% end %>
+
+  <%= form.hidden_field :user_id, value: current_user.id %>
+
+  <!-- Submit button -->
+  <div>
+    <%= form.submit "Submit Comment", class: "btn btn-primary" %>
+  </div>
+<% end %>

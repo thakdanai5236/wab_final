@@ -1,0 +1,16 @@
+<%= stylesheet_link_tag "post", media: "all", "data-turbo-track": "reload" %>
+
+<!-- แสดงข้อความแจ้งเตือน -->
+<p style="color: green"><%= notice %></p>
+
+<!-- กำหนด Title ของหน้า -->
+<% content_for :title, "Posts" %>
+
+<!-- แสดงโพสต์ของผู้ใช้ที่ล็อกอินอยู่ -->
+<div id="posts" class="text-center">
+  <% @posts.each do |post| %>
+    <% if post.user_id == current_user.id %> <!-- ตรวจสอบว่าโพสต์เป็นของผู้ใช้ที่ล็อกอิน -->
+      <%= render post %> <!-- แสดงโพสต์ -->
+    <% end %>
+  <% end %>
+</div>

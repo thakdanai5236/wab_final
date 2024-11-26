@@ -1,0 +1,151 @@
+/*
+ * This is a manifest file that'll be compiled into application.css.
+ *
+ * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
+ * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
+ * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
+ * depending on specificity.
+ *
+ * Consider organizing styles into separate files for maintainability.
+ */
+/*
+ *= require custom
+ */
+/* Styling for the form container */
+.container {
+  max-width: 600px; /* Set the maximum width of the form */
+  margin: 0 auto; /* Center the form horizontally */
+}
+
+/* Center the text */
+.text-center {
+  text-align: center;
+}
+
+/* Button styles */
+.btn {
+  display: block;
+  margin: 20px auto; /* Center the button horizontally */
+}
+
+/* Footer styles */
+footer {
+  background-color: #343a40; /* Dark background for footer */
+  color: #fff; /* White text color */
+  padding: 20px 0; /* Vertical padding */
+}
+
+footer h5 {
+  margin-bottom: 20px; /* Space below the heading */
+}
+
+footer ul {
+  padding: 0;
+  list-style: none; /* Remove list style for footer links */
+}
+
+footer ul li a {
+  color: #adb5bd; /* Light grey color for links */
+  text-decoration: none; /* Remove underline from links */
+}
+
+footer ul li a:hover {
+  color: #fff; /* Change to white on hover */
+  text-decoration: underline; /* Underline on hover */
+}
+
+/* เพิ่มในไฟล์ application.css หรือ custom.css */
+.navbar-nav {
+  margin-left: auto;
+}
+
+.navbar .form-control {
+  max-width: 300px;
+}
+
+/* Navbar margin */
+.navbar {
+  margin-bottom: 20px; /* Add space below navbar */
+}
+
+/* Custom Buttons */
+.btn-primary {
+  background-color: #f50057; /* Instagram-like pink */
+  border: none; /* Remove border */
+}
+
+.btn-primary:hover {
+  background-color: #c51162; /* Darken on hover */
+  transform: scale(1.05); /* Slightly increase size on hover */
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+/* Custom Cards */
+.card {
+  border-radius: 10px; /* Rounded corners for cards */
+  overflow: hidden; /* Ensure no content overflows */
+}
+
+.card-img-top {
+  height: 200px; /* Set fixed height for card image */
+  object-fit: cover; /* Ensure image covers the area */
+}
+
+/* Styles for Comments Section */
+body {
+  background-color: #f8f9fa; /* Light background for the body */
+}
+
+.card {
+  border-radius: 8px; /* Rounded corners for comment cards */
+  overflow: hidden;
+}
+
+.card-title {
+  font-size: 1.75rem; /* Larger font size for comment card titles */
+  font-weight: bold;
+}
+
+.table th {
+  text-align: left;
+  width: 30%;
+  color: #6c757d; /* Light gray color for table headers */
+}
+
+.table td {
+  font-size: 1rem; /* Standard font size for table data */
+}
+
+.btn-outline-primary {
+  font-weight: bold; /* Bold text for outlined primary buttons */
+}
+
+.btn-danger {
+  background-color: #dc3545; /* Red background for danger buttons */
+  border-color: #dc3545;
+}
+
+.btn-danger:hover {
+  background-color: #c82333; /* Darken red on hover */
+  border-color: #bd2130;
+}
+
+.search-bar {
+  margin: 20px auto;
+  text-align: center; /* จัดให้อยู่ตรงกลาง */
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #000;
+}
+
+.nav-link {
+  margin-left: 10px;
+  text-decoration: none;
+  color: #000;
+}
+
+

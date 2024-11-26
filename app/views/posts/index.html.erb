@@ -1,0 +1,42 @@
+<div class="container mt-5">
+  <!-- Header Section -->
+  <div class="d-flex justify-content-between align-items-center">
+    <h1 class="logo">YourApp</h1>
+  </div>
+
+  <hr />
+
+  <!-- New Post Button -->
+  <div class="text-end mb-4">
+    <%= link_to "New Post", new_post_path, class: "btn btn-success btn-lg" %>
+  </div>
+
+  <!-- Posts Grid (เลือกส่วนนี้สำหรับแสดงโพสต์) -->
+  <h1>All Posts</h1>
+  <div id="posts" class="row text-center">
+    <% if @posts.any? %>
+      <% @posts.each do |post| %>
+        <div class="col-md-4 mb-4">
+          <div class="card shadow-sm">
+            <!-- Post Image -->
+            <%= image_tag(
+              post.image.attached? ? url_for(post.image) : 'https://via.placeholder.com/300',
+              class: 'card-img-top',
+              alt: post.title
+            ) %>
+            <div class="card-body">
+              <!-- Post Title -->
+              <h5 class="card-title"><%= truncate(post.title, length: 30) %></h5>
+              <p class="card-text"><%= truncate(post.description, length: 100) %></p>
+              <!-- View Post Button -->
+              <%= link_to "Read more", post_path(post), class: "btn btn-outline-primary" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <!-- Message if no posts are available -->
+      <p class="text-muted">No posts found matching your search.</p>
+    <% end %>
+  </div>
+</div>

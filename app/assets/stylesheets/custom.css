@@ -1,0 +1,55 @@
+.navbar {
+    background-color: #f8f9fa; /* พื้นหลัง Navbar */
+    border-bottom: 1px solid #ddd; /* เส้นขอบด้านล่าง */
+  }
+  
+  .navbar .form-control {
+    max-width: 300px; /* กำหนดขนาดของ Search Box */
+    border-radius: 20px; /* โค้งมน */
+    padding: 0.5rem 1rem;
+  }
+  
+  .navbar .btn-primary {
+    border-radius: 20px; /* ทำให้ปุ่มโค้งมน */
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .navbar .btn-primary:hover {
+    background-color: #0056b3; /* เปลี่ยนสีเมื่อ Hover */
+    border-color: #004085;
+  }
+  
+  .navbar .navbar-brand {
+    font-size: 1.5rem; /* ขนาดตัวอักษรโลโก้ */
+    color: #333;
+  }
+  
+  .navbar .navbar-nav .nav-link {
+    margin-right: 15px; /* ช่องว่างระหว่างลิงก์ */
+  }
+  
+  .navbar .d-flex.ms-auto {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar .d-flex.ms-auto .form-control {
+    margin-right: 10px; /* เพิ่มช่องว่างระหว่างช่องค้นหาและปุ่ม */
+  }
+    
+.form-control {
+    border-radius: 20px;
+}
+  
+.btn-outline-success {
+    border-radius: 20px;
+    color: #007bff;
+    border-color: #007bff;
+}
+  
+.btn-outline-success:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+  
